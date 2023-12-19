@@ -8,10 +8,10 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 class Concert(models.Model):
-    # concert_name
-    # duration
-    # city
-    # date
+    concert_name = models.CharField(max_length=255) # concert_name
+    duration = models.IntegerField() # duration
+    city = models.CharField(max_length=255) # city
+    date = models.DateField(default=datetime.now) # date
 
     def __str__(self):
         return self.concert_name
@@ -41,12 +41,12 @@ class ConcertAttending(models.Model):
 
 
 class Photo(models.Model):
-    # id
-    # pic_url
-    # event_country
-    # event_state
-    # event_city
-    # event_date
+    id = models.IntegerField(primary_key=True) # id
+    pic_url = models.CharField(max_length=1000) # pic_url
+    event_country = models.CharField(max_length=255) # event_country
+    event_state = models.CharField(max_length=255) # event_state
+    event_city = models.CharField(max_length=255) # event_city
+    event_date = models.DateField(default=datetime.now) # event_date
 
     class Meta:
         managed = False
@@ -56,9 +56,9 @@ class Photo(models.Model):
 
 
 class Song(models.Model):
-    # id
-    # title
-    # lyrics
+    id = models.IntegerField(primary_key=True) # id
+    title = models.CharField(max_length=255) # title
+    lyrics = models.TextField() # lyrics
 
     class Meta:
         managed = False
